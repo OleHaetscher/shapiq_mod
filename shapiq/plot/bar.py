@@ -223,36 +223,52 @@ def bar_plot(
     Returns:
         plt.Axes | None: The Matplotlib Axes if show=False, otherwise None after plt.show().
     """
-    # -------------------------------------------------------------------------
-    # 1) If user gave list of lists, aggregate each sublist + compute SD.
-    # -------------------------------------------------------------------------
+    # OLD COMMENT:
+    # "for sublist in list_of_interaction_values" => aggregated_iv = aggregate_interaction_values(sublist)
+
+    # NEW:
+    # We interpret the outer dimension as #configurations, and the inner dimension as #samples.
+    # We want the final result to be of size n_samples, i.e. for each sample index i we aggregate
+    # across all configurations.
+
     auto_computed_sd_values = None
-    if len(list_of_interaction_values) > 0 and isinstance(list_of_interaction_values[0], list):
-        # Each element in top-level list is a group => aggregate each group into one IV
-        grouped_aggregated = []
-        grouped_sds = []
+    outer_list = list_of_interaction_values
 
-        for sublist in list_of_interaction_values:
-            # 1) Aggregate the sublist via your existing aggregator
-            aggregated_iv = aggregate_interaction_values(sublist, aggregation="mean")
-            grouped_aggregated.append(aggregated_iv)
+    if outer_list and isinstance(outer_list[0], list):
+        # The outer list length = n_config, each sublist is of length n_samples
+        n_config = len(outer_list)
+        n_samples = len(outer_list[0])
 
-            # 2) Compute the standard deviation across sublist for each interaction
-            #    We'll do it manually by pulling each key's value from each sublist item
-            #    and calling np.std(...).
-            all_keys = sorted(aggregated_iv.interaction_lookup.keys())
-            group_std_array = np.zeros(len(all_keys), dtype=float)
-            for i, key in enumerate(all_keys):
-                vals = [iv[key] for iv in sublist]
-                group_std_array[i] = np.std(vals, ddof=1)  # ddof=1 => sample std dev
+        # Check all sublists have the same length
+        for conf_sublist in outer_list:
+            if len(conf_sublist) != n_samples:
+                raise ValueError("All inner sublists must have the same number of samples.")
 
-            grouped_sds.append(group_std_array)
+        aggregated_samples = []
+        all_std_arrays = []
 
-        # Now we effectively have a new list of single IV objects => bar_plot can treat them as normal
-        list_of_interaction_values = grouped_aggregated
+        # For each sample index i, gather that sample from each configuration
+        for i in range(n_samples):
+            # collect the i-th InteractionValues from each config
+            sample_across_configs = [outer_list[c][i] for c in range(n_config)]
 
-        # Our auto-computed SD => shape: (#groups, #keys)
-        auto_computed_sd_values = np.vstack(grouped_sds)  # shape => (n_groups, n_features)
+            # aggregate across configs
+            mean_iv = aggregate_interaction_values(sample_across_configs, aggregation="abs_mean")
+            aggregated_samples.append(mean_iv)
+
+            # compute stdev across configs for each interaction
+            keys = sorted(mean_iv.interaction_lookup.keys())
+            std_array = np.zeros(len(keys), dtype=float)
+            for idx, key in enumerate(keys):
+                vals = [iv[key] for iv in sample_across_configs]
+                std_array[idx] = np.std(vals, ddof=1)  # sample std dev
+            all_std_arrays.append(std_array)
+
+        # Now we have a list of n_samples aggregated IVs
+        list_of_interaction_values = aggregated_samples
+
+        # shape => (n_samples, n_features)
+        auto_computed_sd_values = np.vstack(all_std_arrays)
 
     # -------------------------------------------------------------------------
     # 2) Now handle normal logic with either a list of IVs or the newly aggregated one
