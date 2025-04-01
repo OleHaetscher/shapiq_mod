@@ -21,6 +21,7 @@ def _bar(
     max_display: int | None = 10,
     ax: plt.Axes | None = None,
     sd_values: np.ndarray | None = None,
+    aggregate_rest: bool = True,  # NEW OR MODIFIED PARAMETER
 ) -> plt.Axes:
     """
     Create a bar plot of a set of SHAP values, optionally with error bars.
@@ -34,6 +35,8 @@ def _bar(
         ax (plt.Axes | None): A Matplotlib Axes to draw on. If None, we create a new one.
         sd_values (np.ndarray | None): Standard deviations for error bars, matching
             (n_groups, n_features). If None, no error bars.
+        aggregate_rest (bool): If True, aggregates all features beyond `max_display` into a single bar
+            labeled "Sum of X other features". If False, we simply skip them. Defaults to True.
 
     Returns:
         plt.Axes: The axis on which the bar plot is drawn.
@@ -48,7 +51,7 @@ def _bar(
     feature_order = np.argsort(np.mean(values, axis=0))[::-1]
 
     # if more features than max_display, aggregate "other" features
-    if num_cut > 0:
+    if aggregate_rest and num_cut > 0:
         cut_values = values[:, feature_order[max_display:]]
         sum_of_remaining = np.sum(cut_values, axis=None)
         index_of_last = feature_order[max_display]
@@ -65,7 +68,8 @@ def _bar(
     feature_inds = feature_order[:max_display]
     y_pos = np.arange(len(feature_inds), 0, -1)
     yticklabels = [feature_names[i] for i in feature_inds]
-    if num_cut > 0:
+
+    if aggregate_rest and num_cut > 0:
         yticklabels[-1] = f"Sum of {num_cut} other features"
 
     # create or reuse the axes
@@ -192,6 +196,7 @@ def bar_plot(
     plot_base_value: bool = False,
     ax: plt.Axes | None = None,
     sd_values: np.ndarray | None = None,
+    aggregate_rest: bool = False,  # NEW OR MODIFIED PARAMETER
 ) -> plt.Axes | None:
     """
     Draws interaction values as a SHAP bar plot, optionally with error bars and optionally
@@ -219,6 +224,8 @@ def bar_plot(
         sd_values: (n_groups, n_features) array of standard deviations for error bars,
             if you already have them. Usually not needed if passing a list of lists,
             because we auto-compute SD from each sublist.
+        aggregate_rest (bool): If True, merges all features beyond `max_display` into
+            a single "rest" bar. If False, omit them entirely.
 
     Returns:
         plt.Axes | None: The Matplotlib Axes if show=False, otherwise None after plt.show().
@@ -338,6 +345,7 @@ def bar_plot(
         max_display=max_display,
         ax=ax,
         sd_values=auto_computed_sd_values,
+        aggregate_rest=aggregate_rest,
     )
 
     if show:
