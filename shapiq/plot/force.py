@@ -498,6 +498,7 @@ def _draw_force_plot(
     figsize: tuple[int, int],
     min_perc: float = 0.05,
     draw_higher_lower: bool = True,
+    ax: plt.Axes | None = None   # <-- ADD THIS
 ) -> plt.Figure:
     """
     Draw the force plot.
@@ -534,7 +535,10 @@ def _draw_force_plot(
     # define plots
     offset_text = (np.abs(total_neg) + np.abs(total_pos)) * 0.04
 
-    fig, ax = plt.subplots(figsize=figsize)
+    if ax is None:
+        fig, ax = plt.subplots(figsize=figsize)
+    else:
+        fig = ax.get_figure()
 
     # compute axis limit
     update_axis_limits(ax, total_pos, pos_features, total_neg, neg_features, base_value, out_value)
@@ -582,7 +586,8 @@ def _draw_force_plot(
     # fix the whitespace around the plot
     plt.tight_layout()
 
-    return plt.gcf()
+    return fig
+    # return plt.gcf()
 
 
 def force_plot(
@@ -593,6 +598,7 @@ def force_plot(
     figsize: tuple[int, int] = (15, 4),
     draw_higher_lower: bool = True,
     min_percentage: float = 0.05,
+    ax: plt.Axes | None = None,
 ) -> plt.Figure | None:
     """Draws a force plot for the given interaction values.
 
@@ -605,6 +611,7 @@ def force_plot(
         draw_higher_lower: Whether to draw the higher and lower indicator. Defaults to ``True``.
         min_percentage: Define the minimum percentage of the total effect that a feature must contribute
             to be shown in the plot. Defaults to 0.05.
+        ax:
 
     Returns:
         plt.Figure: The figure of the plot
@@ -617,13 +624,24 @@ def force_plot(
     if abbreviate:
         feature_names = abbreviate_feature_names(feature_names)
     feature_names = np.array(feature_names)
-    plot = _draw_force_plot(
-        interaction_values,
-        feature_names,
-        figsize=figsize,
+
+    if ax is None:
+        fig, ax = plt.subplots(figsize=figsize)
+    else:
+        fig = ax.get_figure()
+
+    # Draw the force plot; modify your _draw_force_plot so it accepts `ax`
+    _draw_force_plot(
+        interaction_value=interaction_values,
+        feature_names=feature_names,
+        ax=ax,                         # Pass the (possibly None) Axes
+        figsize=figsize if ax is None else None,  # Only use figsize if we're creating a new Axes
         draw_higher_lower=draw_higher_lower,
-        min_perc=min_percentage,
+        min_perc=min_percentage
     )
-    if not show:
-        return plot
-    plt.show()
+
+    if show:
+        plt.show()
+        return None
+    else:
+        return fig
