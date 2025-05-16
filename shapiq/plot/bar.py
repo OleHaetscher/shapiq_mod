@@ -48,7 +48,8 @@ def _bar(
     num_cut = max(num_features - max_display, 0)
 
     # sort features by descending mean
-    feature_order = np.argsort(np.mean(values, axis=0))[::-1]
+    # feature_order = np.argsort(np.mean(values, axis=0))[::-1]  # TODO integrate properly
+    feature_order = np.array([0, 2, 1])
 
     # if more features than max_display, aggregate "other" features
     if aggregate_rest and num_cut > 0:
@@ -120,12 +121,24 @@ def _bar(
             error_kw={"elinewidth": 1, "capsize": 3},
         )
 
+    formatted_labels = []
+    for t in yticklabels:
+        suffix = t.split("=")[-1]  # drop any leading "foo="
+        if " x " in suffix:  # pattern:  A x B  (x surrounded by spaces)
+            before, after = suffix.split(" x ", 1)
+            formatted_labels.append(f"{before} x\n{after}")  # keep x on first line
+        else:
+            formatted_labels.append(suffix)
+    # --------------------------------------------------
     # y ticks
-    ax.set_yticks(
-        list(y_pos) + list(y_pos + 1e-8),
-        yticklabels + [t.split("=")[-1] for t in yticklabels],
-        fontsize=13,
-    )
+    #ax.set_yticks(
+    #    list(y_pos) + list(y_pos + 1e-8),
+    #    # formatted_labels, # yticklabels + [t.split("=")[-1] for t in yticklabels],
+    #    # yticklabels + [t.split("=")[-1] for t in yticklabels],
+    #    formatted_labels, #  + [t.split("=")[-1] for t in formatted_labels],
+    #    fontsize=18,
+    #)
+    ax.set_yticks(y_pos, formatted_labels, fontsize=22)
 
     xlen = ax.get_xlim()[1] - ax.get_xlim()[0]
     bbox = ax.get_window_extent().transformed(ax.figure.dpi_scale_trans.inverted())
@@ -149,7 +162,7 @@ def _bar(
                 ha=ha,
                 va="center",
                 color=color,
-                fontsize=12,
+                fontsize=16,
             )
 
     # horizontal lines
@@ -163,7 +176,7 @@ def _bar(
     ax.spines["top"].set_visible(False)
     if negative_values_present:
         ax.spines["left"].set_visible(False)
-    ax.tick_params("x", labelsize=11)
+    ax.tick_params("x", labelsize=15)
 
     # expand x-limits slightly
     xmin, xmax = ax.get_xlim()
@@ -173,15 +186,15 @@ def _bar(
     else:
         ax.set_xlim(xmin, xmax + x_buffer)
 
-    ax.set_xlabel("Attribution", fontsize=13)
+    ax.set_xlabel("Attribution", fontsize=16)
 
     if num_groups > 1:
-        ax.legend(fontsize=12, loc="lower right")
+        ax.legend(fontsize=16, loc="lower right")
 
     # color y-tick labels
-    tick_labels = ax.yaxis.get_majorticklabels()
-    for i in range(max_display):
-        tick_labels[i].set_color("#999999")
+    #tick_labels = ax.yaxis.get_majorticklabels()
+    #for i in range(max_display):
+    #    tick_labels[i].set_color("#999999")
 
     return ax
 
