@@ -22,6 +22,7 @@ def _bar(
     ax: plt.Axes | None = None,
     sd_values: np.ndarray | None = None,
     aggregate_rest: bool = True,  # NEW OR MODIFIED PARAMETER
+    custom_order: np.ndarray | None = None,   # NEW OR MODIFIED PARAMETER
 ) -> plt.Axes:
     """
     Create a bar plot of a set of SHAP values, optionally with error bars.
@@ -37,6 +38,7 @@ def _bar(
             (n_groups, n_features). If None, no error bars.
         aggregate_rest (bool): If True, aggregates all features beyond `max_display` into a single bar
             labeled "Sum of X other features". If False, we simply skip them. Defaults to True.
+        custom_order (np.ndarray | None): Custom order for features. If None, we sort by mean values.
 
     Returns:
         plt.Axes: The axis on which the bar plot is drawn.
@@ -47,9 +49,11 @@ def _bar(
     max_display = min(max_display, num_features)
     num_cut = max(num_features - max_display, 0)
 
-    # sort features by descending mean
-    # feature_order = np.argsort(np.mean(values, axis=0))[::-1]  # TODO integrate properly
-    feature_order = np.array([0, 2, 1])
+    # sort features by descending mean or custom order given
+    if custom_order is not None and len(custom_order) > 0:
+        feature_order = custom_order
+    else:
+        feature_order = np.argsort(np.mean(values, axis=0))[::-1]
 
     # if more features than max_display, aggregate "other" features
     if aggregate_rest and num_cut > 0:
@@ -129,15 +133,7 @@ def _bar(
             formatted_labels.append(f"{before} x\n{after}")  # keep x on first line
         else:
             formatted_labels.append(suffix)
-    # --------------------------------------------------
-    # y ticks
-    #ax.set_yticks(
-    #    list(y_pos) + list(y_pos + 1e-8),
-    #    # formatted_labels, # yticklabels + [t.split("=")[-1] for t in yticklabels],
-    #    # yticklabels + [t.split("=")[-1] for t in yticklabels],
-    #    formatted_labels, #  + [t.split("=")[-1] for t in formatted_labels],
-    #    fontsize=18,
-    #)
+
     ax.set_yticks(y_pos, formatted_labels, fontsize=22)
 
     xlen = ax.get_xlim()[1] - ax.get_xlim()[0]
@@ -191,11 +187,6 @@ def _bar(
     if num_groups > 1:
         ax.legend(fontsize=16, loc="lower right")
 
-    # color y-tick labels
-    #tick_labels = ax.yaxis.get_majorticklabels()
-    #for i in range(max_display):
-    #    tick_labels[i].set_color("#999999")
-
     return ax
 
 
@@ -210,6 +201,7 @@ def bar_plot(
     ax: plt.Axes | None = None,
     sd_values: np.ndarray | None = None,
     aggregate_rest: bool = False,  # NEW OR MODIFIED PARAMETER
+    custom_order: np.ndarray | None = None,  # NEW OR MODIFIED PARAMETER
 ) -> plt.Axes | None:
     """
     Draws interaction values as a SHAP bar plot, optionally with error bars and optionally
@@ -239,6 +231,7 @@ def bar_plot(
             because we auto-compute SD from each sublist.
         aggregate_rest (bool): If True, merges all features beyond `max_display` into
             a single "rest" bar. If False, omit them entirely.
+        custom_order (np.ndarray | None): Custom order for features. If None, we sort by mean values.
 
     Returns:
         plt.Axes | None: The Matplotlib Axes if show=False, otherwise None after plt.show().
@@ -359,6 +352,7 @@ def bar_plot(
         ax=ax,
         sd_values=auto_computed_sd_values,
         aggregate_rest=aggregate_rest,
+        custom_order=custom_order,
     )
 
     if show:
