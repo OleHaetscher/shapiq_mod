@@ -5,7 +5,7 @@ import copy
 import numpy as np
 import pytest
 
-from shapiq.explainer.tree import TreeExplainer, TreeModel
+from shapiq_repo.shapiq.explainer.tree import TreeExplainer, TreeModel
 
 
 def test_decision_tree_classifier(dt_clf_model, background_clf_data):

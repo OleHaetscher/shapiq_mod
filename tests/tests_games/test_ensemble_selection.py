@@ -10,8 +10,8 @@ from sklearn.metrics import (
     r2_score,
 )
 
-from shapiq.games import Game
-from shapiq.games.benchmark import (
+from shapiq_repo.shapiq.games import Game
+from shapiq_repo.shapiq.games.benchmark import (
     AdultCensusEnsembleSelection,
     BikeSharingEnsembleSelection,
     CaliforniaHousingEnsembleSelection,

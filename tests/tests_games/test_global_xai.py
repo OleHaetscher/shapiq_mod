@@ -5,8 +5,8 @@ import os
 import numpy as np
 import pytest
 
-from shapiq.games import Game
-from shapiq.games.benchmark import (
+from shapiq_repo.shapiq.games import Game
+from shapiq_repo.shapiq.games.benchmark import (
     AdultCensusGlobalXAI,
     BikeSharingGlobalXAI,
     CaliforniaHousingGlobalXAI,

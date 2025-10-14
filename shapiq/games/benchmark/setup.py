@@ -18,8 +18,8 @@ from sklearn.metrics import (
 from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
 
-from shapiq.datasets import load_adult_census, load_bike_sharing, load_california_housing
-from shapiq.utils import Model, shuffle_data
+from shapiq_repo.shapiq.datasets import load_adult_census, load_bike_sharing, load_california_housing
+from shapiq_repo.shapiq.utils import Model, shuffle_data
 
 AVAILABLE_DATASETS = ["adult_census", "bike_sharing", "california_housing"]
 
@@ -86,7 +86,7 @@ class GameBenchmarkSetup:
         ValueError: If an invalid model name is provided for the dataset.
 
     Examples:
-        >>> from shapiq.games.benchmark.setup import GameBenchmarkSetup
+        >>> from shapiq_repo.shapiq.games.benchmark.setup import GameBenchmarkSetup
         >>> setup = GameBenchmarkSetup(dataset_name='adult_census', model_name='decision_tree')
         >>> setup.n_features
         14

@@ -4,9 +4,9 @@ import numpy as np
 import pytest
 
 import shapiq
-from shapiq.game_theory.core import egalitarian_least_core
-from shapiq.games.benchmark.synthetic.soum import SOUM
-from shapiq.utils import powerset
+from shapiq_repo.shapiq.game_theory.core import egalitarian_least_core
+from shapiq_repo.shapiq.games.benchmark.synthetic.soum import SOUM
+from shapiq_repo.shapiq.utils import powerset
 
 
 def test_core_on_soum():

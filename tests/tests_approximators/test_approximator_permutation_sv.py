@@ -3,8 +3,8 @@
 import numpy as np
 import pytest
 
-from shapiq.approximator.permutation import PermutationSamplingSV
-from shapiq.games.benchmark import DummyGame
+from shapiq_repo.shapiq.approximator.permutation import PermutationSamplingSV
+from shapiq_repo.shapiq.games.benchmark import DummyGame
 
 
 @pytest.mark.parametrize(

@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from shapiq.utils import (
+from shapiq_repo.shapiq.utils import (
     count_interactions,
     generate_interaction_lookup,
     get_explicit_subsets,

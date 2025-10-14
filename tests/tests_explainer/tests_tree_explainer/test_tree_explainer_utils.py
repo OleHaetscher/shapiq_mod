@@ -2,7 +2,7 @@
 
 import numpy as np
 
-from shapiq.explainer.tree.utils import (
+from shapiq_repo.shapiq.explainer.tree.utils import (
     compute_empty_prediction,
     get_conditional_sample_weights,
 )

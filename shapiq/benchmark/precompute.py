@@ -6,7 +6,7 @@ from typing import Any
 
 from tqdm.auto import tqdm
 
-from shapiq.games.base import Game
+from shapiq_repo.shapiq.games.base import Game
 
 __all__ = [
     "pre_compute_from_configuration",

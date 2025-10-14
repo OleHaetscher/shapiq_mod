@@ -877,7 +877,7 @@ class ExactComputer:
 
     def compute_egalitarian_least_core(self, *args, **kwargs):
 
-        from shapiq.game_theory.core import egalitarian_least_core
+        from shapiq_repo.shapiq.game_theory.core import egalitarian_least_core
 
         order = 1
 

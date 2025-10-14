@@ -38,8 +38,8 @@ def interaction_values_list():
     """Returns a list of three InteractionValues objects."""
     rng = np.random.RandomState(42)
 
-    from shapiq.interaction_values import InteractionValues
-    from shapiq.utils import powerset
+    from shapiq_repo.shapiq.interaction_values import InteractionValues
+    from shapiq_repo.shapiq.utils import powerset
 
     n_objects = 3
     n_players = 5

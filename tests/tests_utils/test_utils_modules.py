@@ -3,7 +3,7 @@
 import pytest
 from sklearn.tree import DecisionTreeRegressor
 
-from shapiq.utils import check_import_module, safe_isinstance
+from shapiq_repo.shapiq.utils import check_import_module, safe_isinstance
 
 
 def test_safe_isinstance():

@@ -1,7 +1,7 @@
 """This module contains the cluster explanation benchmark games the shapiq package."""
 
-from shapiq.games.benchmark.setup import GameBenchmarkSetup
-from shapiq.games.benchmark.unsupervised_cluster.base import ClusterExplanation
+from shapiq_repo.shapiq.games.benchmark.setup import GameBenchmarkSetup
+from shapiq_repo.shapiq.games.benchmark.unsupervised_cluster.base import ClusterExplanation
 
 
 class AdultCensus(ClusterExplanation):

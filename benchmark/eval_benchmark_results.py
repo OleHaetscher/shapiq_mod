@@ -11,11 +11,11 @@ import pandas as pd
 from tqdm.auto import tqdm
 
 try:
-    from shapiq.games.benchmark.plot import abbreviate_application_name, create_application_name
+    from shapiq_repo.shapiq.games.benchmark.plot import abbreviate_application_name, create_application_name
 except ImportError:  # add shapiq to the path
     sys.path.insert(0, str(Path(__file__).parent.parent))
     os.makedirs("eval", exist_ok=True)
-    from shapiq.games.benchmark.plot import abbreviate_application_name, create_application_name
+    from shapiq_repo.shapiq.games.benchmark.plot import abbreviate_application_name, create_application_name
 
 EVAL_DIR = Path(__file__).parent / "eval"
 BENCHMARK_RESULTS_DIR = Path(__file__).parent / "results"
@@ -108,7 +108,7 @@ def _get_best_approximator(df: pd.DataFrame) -> dict[str, list[tuple]]:
 def create_eval_csv(n_evals: int = None) -> pd.DataFrame:
     """Create a summary csv file from all benchmark results."""
 
-    from shapiq.games.benchmark.run import load_benchmark_results
+    from shapiq_repo.shapiq.games.benchmark.run import load_benchmark_results
 
     # get all files in the benchmark results directory
     all_benchmark_results = list(os.listdir(BENCHMARK_RESULTS_DIR))
@@ -216,7 +216,7 @@ def plot_stacked_bar(df: pd.DataFrame, setting: str = "high", save: bool = False
 
     import matplotlib.pyplot as plt
 
-    from shapiq.games.benchmark.plot import STYLE_DICT  # maps approx names to colors and markers
+    from shapiq_repo.shapiq.games.benchmark.plot import STYLE_DICT  # maps approx names to colors and markers
 
     # get all unique applications and metrics and index
     all_applications = df["application_name"].unique()

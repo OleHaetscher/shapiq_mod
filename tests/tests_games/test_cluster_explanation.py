@@ -5,8 +5,8 @@ import os
 import numpy as np
 import pytest
 
-from shapiq.games.base import Game
-from shapiq.games.benchmark import (
+from shapiq_repo.shapiq.games.base import Game
+from shapiq_repo.shapiq.games.benchmark import (
     AdultCensusClusterExplanation,
     BikeSharingClusterExplanation,
     CaliforniaHousingClusterExplanation,

@@ -2,8 +2,8 @@
 
 import pytest
 
-from shapiq.approximator.marginals import StratifiedSamplingSV
-from shapiq.games.benchmark import DummyGame
+from shapiq_repo.shapiq.approximator.marginals import StratifiedSamplingSV
+from shapiq_repo.shapiq.games.benchmark import DummyGame
 
 
 @pytest.mark.parametrize(

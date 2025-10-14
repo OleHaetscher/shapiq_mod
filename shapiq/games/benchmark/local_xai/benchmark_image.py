@@ -4,7 +4,7 @@ from warnings import warn
 
 import numpy as np
 
-from shapiq.games.base import Game
+from shapiq_repo.shapiq.games.base import Game
 
 
 class ImageClassifier(Game):
@@ -47,7 +47,7 @@ class ImageClassifier(Game):
             superpixels.
 
     Examples:
-        >>> from shapiq.games.benchmark.local_xai import ImageClassifier
+        >>> from shapiq_repo.shapiq.games.benchmark.local_xai import ImageClassifier
         >>> game = ImageClassifier(x_explain_path='path/to/image.jpg')
         >>> game(game.grand_coalition)  # returns some value
         >>> game.n_players
@@ -55,7 +55,7 @@ class ImageClassifier(Game):
         >>> # precompute, save, and load values
         >>> game.precompute()
         >>> game.save_values('path/to/save.npz')
-        >>> from shapiq.games import Game
+        >>> from shapiq_repo.shapiq.games import Game
         >>> loaded_game = Game(path_to_values='path/to/save.npz')
 
     """
@@ -89,7 +89,7 @@ class ImageClassifier(Game):
         # setup the models model
         self.model_function = model_name
         if model_name == "vit_16_patches" or model_name == "vit_9_patches":
-            from shapiq.games.benchmark._setup._vit_setup import ViTModel
+            from shapiq_repo.shapiq.games.benchmark._setup._vit_setup import ViTModel
 
             n_players = 9
             if model_name == "vit_16_patches":
@@ -98,7 +98,7 @@ class ImageClassifier(Game):
             normalization_value = vit_model.empty_value
             self.model_function = vit_model
         else:
-            from shapiq.games.benchmark._setup._resnet_setup import ResNetModel
+            from shapiq_repo.shapiq.games.benchmark._setup._resnet_setup import ResNetModel
 
             n_sp = n_superpixel_resnet
             resnet_model = ResNetModel(

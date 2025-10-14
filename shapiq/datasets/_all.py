@@ -47,7 +47,7 @@ def load_california_housing(
         The California housing dataset as a pandas DataFrame.
 
     Example:
-        >>> from shapiq.datasets import load_california_housing
+        >>> from shapiq_repo.shapiq.datasets import load_california_housing
         >>> x_data, y_data = load_california_housing()
         >>> print(x_data.shape, y_data.shape)
         ((20640, 8), (20640,))
@@ -77,7 +77,7 @@ def load_bike_sharing(
         The bike-sharing dataset as a pandas DataFrame.
 
     Example:
-        >>> from shapiq.datasets import load_bike_sharing
+        >>> from shapiq_repo.shapiq.datasets import load_bike_sharing
         >>> x_data, y_data = load_bike_sharing()
         >>> print(x_data.shape, y_data.shape)
         ((17379, 12), (17379,))
@@ -149,7 +149,7 @@ def load_adult_census(
         The adult census dataset as a pandas DataFrame.
 
     Example:
-        >>> from shapiq.datasets import load_adult_census
+        >>> from shapiq_repo.shapiq.datasets import load_adult_census
         >>> x_data, y_data = load_adult_census()
         >>> print(x_data.shape, y_data.shape)
         ((45222, 14), (45222,))

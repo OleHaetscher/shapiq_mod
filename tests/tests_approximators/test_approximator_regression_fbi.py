@@ -6,8 +6,8 @@ import numpy as np
 import pytest
 
 from shapiq import ExactComputer
-from shapiq.approximator import RegressionFBII
-from shapiq.games.benchmark import DummyGame
+from shapiq_repo.shapiq.approximator import RegressionFBII
+from shapiq_repo.shapiq.games.benchmark import DummyGame
 
 
 @pytest.mark.parametrize(

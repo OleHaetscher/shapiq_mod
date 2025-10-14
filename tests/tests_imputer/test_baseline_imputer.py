@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from shapiq.games.imputer import BaselineImputer
+from shapiq_repo.shapiq.games.imputer import BaselineImputer
 
 
 def test_baseline_init_background():

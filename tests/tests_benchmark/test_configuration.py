@@ -2,12 +2,12 @@
 
 import pytest
 
-from shapiq.benchmark.configuration import (
+from shapiq_repo.shapiq.benchmark.configuration import (
     GAME_NAME_TO_CLASS_MAPPING,
     get_name_from_game_class,
     print_benchmark_configurations,
 )
-from shapiq.benchmark.load import download_game_data, load_games_from_configuration
+from shapiq_repo.shapiq.benchmark.load import download_game_data, load_games_from_configuration
 
 
 def test_print_config():

@@ -3,8 +3,8 @@ the UnanimityGame Class."""
 
 import numpy as np
 
-from shapiq.games.base import Game
-from shapiq.interaction_values import InteractionValues
+from shapiq_repo.shapiq.games.base import Game
+from shapiq_repo.shapiq.interaction_values import InteractionValues
 
 
 class UnanimityGame(Game):
@@ -92,7 +92,7 @@ class SOUM(Game):
         normalize: bool = False,
         verbose: bool = False,
     ):
-        from shapiq.game_theory.moebius_converter import MoebiusConverter
+        from shapiq_repo.shapiq.game_theory.moebius_converter import MoebiusConverter
 
         self._rng = np.random.default_rng(random_state)
 
@@ -158,7 +158,7 @@ class SOUM(Game):
         Returns:
             The exact values for the given index and order.
         """
-        from shapiq.game_theory.moebius_converter import MoebiusConverter
+        from shapiq_repo.shapiq.game_theory.moebius_converter import MoebiusConverter
 
         if self.converter is None:
             self.converter = MoebiusConverter(self.moebius_coefficients)

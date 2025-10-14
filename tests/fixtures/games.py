@@ -7,7 +7,7 @@ import pytest
 @pytest.fixture
 def cooking_game():
     """Return the cooking game object."""
-    from shapiq.games.base import Game
+    from shapiq_repo.shapiq.games.base import Game
 
     class CookingGame(Game):
         def __init__(self):
@@ -43,7 +43,7 @@ def paper_game():
     """Return a simple game object."""
     from scipy.special import binom
 
-    from shapiq.games.base import Game
+    from shapiq_repo.shapiq.games.base import Game
 
     class PaperGame(Game):
         """A game with 11 players, where each coalition must contain at least 2 players and with probability 0.1 of two players not cooperating."""

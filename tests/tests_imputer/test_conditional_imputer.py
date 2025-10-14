@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from shapiq.games.imputer import ConditionalImputer
+from shapiq_repo.shapiq.games.imputer import ConditionalImputer
 
 
 def test_conditional_imputer_init():

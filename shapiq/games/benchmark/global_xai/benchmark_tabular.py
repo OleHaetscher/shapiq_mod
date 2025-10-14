@@ -1,7 +1,7 @@
 """This module contains tabular benchmark games for local explanation."""
 
-from shapiq.games.benchmark.global_xai.base import GlobalExplanation
-from shapiq.games.benchmark.setup import GameBenchmarkSetup
+from shapiq_repo.shapiq.games.benchmark.global_xai.base import GlobalExplanation
+from shapiq_repo.shapiq.games.benchmark.setup import GameBenchmarkSetup
 
 
 class AdultCensus(GlobalExplanation):

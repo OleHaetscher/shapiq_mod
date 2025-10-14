@@ -2,7 +2,7 @@
 
 from typing import Any
 
-from shapiq.utils import safe_isinstance
+from shapiq_repo.shapiq.utils import safe_isinstance
 
 from .base import TreeModel
 from .conversion.lightgbm import convert_lightgbm_booster

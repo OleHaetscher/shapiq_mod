@@ -1,7 +1,7 @@
 """This benchmark module contains the benchmark games for ensemble selection."""
 
-from shapiq.games.benchmark.ensemble_selection.base import EnsembleSelection
-from shapiq.games.benchmark.setup import GameBenchmarkSetup
+from shapiq_repo.shapiq.games.benchmark.ensemble_selection.base import EnsembleSelection
+from shapiq_repo.shapiq.games.benchmark.setup import GameBenchmarkSetup
 
 
 class AdultCensus(EnsembleSelection):

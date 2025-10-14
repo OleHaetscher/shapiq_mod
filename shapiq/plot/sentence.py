@@ -60,7 +60,7 @@ def sentence_plot(
 
     Example:
         >>> import numpy as np
-        >>> from shapiq.plot import sentence_plot
+        >>> from shapiq_repo.shapiq.plot import sentence_plot
         >>> iv = InteractionValues(
         ...    values=np.array([0.45, 0.01, 0.67, -0.2, -0.05, 0.7, 0.1, -0.04, 0.56, 0.7]),
         ...    index="SV",

@@ -4,7 +4,7 @@ implementation."""
 import pytest
 
 from shapiq import safe_isinstance
-from shapiq.explainer.tree.validation import SUPPORTED_MODELS, validate_tree_model
+from shapiq_repo.shapiq.explainer.tree.validation import SUPPORTED_MODELS, validate_tree_model
 from tests.conftest import TREE_MODEL_FIXTURES
 
 

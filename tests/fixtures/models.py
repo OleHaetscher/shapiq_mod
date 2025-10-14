@@ -7,8 +7,8 @@ from sklearn.linear_model import LinearRegression, LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
 
-from shapiq.explainer.tree import TreeModel
-from shapiq.utils import Model
+from shapiq_repo.shapiq.explainer.tree import TreeModel
+from shapiq_repo.shapiq.utils import Model
 
 NR_FEATURES = 7  # Number of features for the tabular models
 
@@ -250,7 +250,7 @@ def lightgbm_clf_model(background_clf_dataset) -> Model:
 @pytest.fixture
 def dt_clf_model_tree_model(background_clf_dataset) -> TreeModel:
     """Return a simple decision tree as a TreeModel."""
-    from shapiq.explainer.tree.validation import validate_tree_model
+    from shapiq_repo.shapiq.explainer.tree.validation import validate_tree_model
 
     X, y = background_clf_dataset
     model = DecisionTreeClassifier(random_state=42, max_depth=3)

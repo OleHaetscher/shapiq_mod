@@ -5,7 +5,7 @@ from typing import Any
 
 import numpy as np
 
-from shapiq.games.base import Game
+from shapiq_repo.shapiq.games.base import Game
 
 
 class FeatureSelection(Game):

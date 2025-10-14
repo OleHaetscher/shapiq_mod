@@ -5,9 +5,9 @@ import os
 import numpy as np
 import pytest
 
-from shapiq.games.base import Game
-from shapiq.games.benchmark import DummyGame  # used to test the base class
-from shapiq.utils.sets import powerset, transform_coalitions_to_array
+from shapiq_repo.shapiq.games.base import Game
+from shapiq_repo.shapiq.games.benchmark import DummyGame  # used to test the base class
+from shapiq_repo.shapiq.utils.sets import powerset, transform_coalitions_to_array
 
 
 def test_call():

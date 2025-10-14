@@ -8,15 +8,15 @@ from typing import Any
 
 import requests
 
-from shapiq.benchmark.configuration import (
+from shapiq_repo.shapiq.benchmark.configuration import (
     BENCHMARK_CONFIGURATIONS,
     BENCHMARK_CONFIGURATIONS_DEFAULT_ITERATIONS,
     BENCHMARK_CONFIGURATIONS_DEFAULT_PARAMS,
     GAME_NAME_TO_CLASS_MAPPING,
     get_game_file_name_from_config,
 )
-from shapiq.benchmark.precompute import SHAPIQ_DATA_DIR
-from shapiq.games.base import Game
+from shapiq_repo.shapiq.benchmark.precompute import SHAPIQ_DATA_DIR
+from shapiq_repo.shapiq.games.base import Game
 
 __all__ = [
     "load_games_from_configuration",

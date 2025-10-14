@@ -2,8 +2,8 @@
 
 import numpy as np
 
-from shapiq.games.benchmark.setup import GameBenchmarkSetup, get_x_explain
-from shapiq.games.benchmark.uncertainty.base import UncertaintyExplanation
+from shapiq_repo.shapiq.games.benchmark.setup import GameBenchmarkSetup, get_x_explain
+from shapiq_repo.shapiq.games.benchmark.uncertainty.base import UncertaintyExplanation
 
 
 class AdultCensus(UncertaintyExplanation):

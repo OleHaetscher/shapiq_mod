@@ -11,7 +11,7 @@ from ._config import COLORS_K_SII
 
 __all__ = ["stacked_bar_plot"]
 
-from shapiq.interaction_values import InteractionValues
+from shapiq_repo.shapiq.interaction_values import InteractionValues
 
 
 def stacked_bar_plot(
@@ -56,7 +56,7 @@ def stacked_bar_plot(
 
     Example:
         >>> import numpy as np
-        >>> from shapiq.plot import stacked_bar_plot
+        >>> from shapiq_repo.shapiq.plot import stacked_bar_plot
         >>> interaction_values = InteractionValues(
         ...    values=np.array([1, -1.5, 1.75, 0.25, -0.5, 0.75,0.2]),
         ...    index="SII",

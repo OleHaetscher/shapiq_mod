@@ -45,7 +45,7 @@ def aggregate_base_interaction(
 
     Examples:
         >>> import numpy as np
-        >>> from shapiq.interaction_values import InteractionValues
+        >>> from shapiq_repo.shapiq.interaction_values import InteractionValues
         >>> sii_values = InteractionValues(
         ...     n_players=3,
         ...     values=np.array([-0.1, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6]),

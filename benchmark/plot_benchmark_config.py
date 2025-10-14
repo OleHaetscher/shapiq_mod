@@ -12,9 +12,9 @@ if __name__ == "__main__":
 
     import matplotlib.pyplot as plt
 
-    from shapiq.games.benchmark.benchmark_config import GAME_NAME_TO_CLASS_MAPPING
-    from shapiq.games.benchmark.plot import get_game_title_name, plot_approximation_quality
-    from shapiq.games.benchmark.run import load_benchmark_results
+    from shapiq_repo.shapiq.games.benchmark.benchmark_config import GAME_NAME_TO_CLASS_MAPPING
+    from shapiq_repo.shapiq.games.benchmark.plot import get_game_title_name, plot_approximation_quality
+    from shapiq_repo.shapiq.games.benchmark.run import load_benchmark_results
 
     print("Available games:", GAME_NAME_TO_CLASS_MAPPING.keys(), "\n")
 

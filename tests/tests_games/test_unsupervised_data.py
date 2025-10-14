@@ -2,14 +2,14 @@
 
 import numpy as np
 
-from shapiq.games.base import Game
-from shapiq.games.benchmark import (
+from shapiq_repo.shapiq.games.base import Game
+from shapiq_repo.shapiq.games.benchmark import (
     AdultCensusUnsupervisedData,
     BikeSharingUnsupervisedData,
     CaliforniaHousingUnsupervisedData,
     UnsupervisedData,
 )
-from shapiq.utils import powerset
+from shapiq_repo.shapiq.utils import powerset
 
 
 def test_base_class():

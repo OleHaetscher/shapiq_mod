@@ -2,9 +2,9 @@
 
 import pytest
 
-from shapiq.approximator.permutation import PermutationSamplingSII
-from shapiq.games.benchmark import DummyGame
-from shapiq.interaction_values import InteractionValues
+from shapiq_repo.shapiq.approximator.permutation import PermutationSamplingSII
+from shapiq_repo.shapiq.games.benchmark import DummyGame
+from shapiq_repo.shapiq.interaction_values import InteractionValues
 
 
 @pytest.mark.parametrize(

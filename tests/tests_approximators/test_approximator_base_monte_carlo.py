@@ -3,9 +3,9 @@ approximators are based on."""
 
 import pytest
 
-from shapiq.approximator.montecarlo import MonteCarlo
-from shapiq.games.benchmark import DummyGame
-from shapiq.interaction_values import InteractionValues
+from shapiq_repo.shapiq.approximator.montecarlo import MonteCarlo
+from shapiq_repo.shapiq.games.benchmark import DummyGame
+from shapiq_repo.shapiq.interaction_values import InteractionValues
 
 
 @pytest.mark.parametrize(

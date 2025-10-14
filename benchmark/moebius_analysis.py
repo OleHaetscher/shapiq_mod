@@ -9,11 +9,11 @@ import pandas as pd
 from tqdm.auto import tqdm
 
 try:
-    from shapiq.interaction_values import InteractionValues
+    from shapiq_repo.shapiq.interaction_values import InteractionValues
 except ImportError:
     sys.path.insert(0, str(Path(__file__).parent.parent))
     os.makedirs("eval", exist_ok=True)
-    from shapiq.interaction_values import InteractionValues
+    from shapiq_repo.shapiq.interaction_values import InteractionValues
 
 
 def plot_box_plot(
@@ -59,12 +59,12 @@ def plot_box_plot(
 
 
 if __name__ == "__main__":
-    from shapiq.exact import ExactComputer
-    from shapiq.games.benchmark.benchmark_config import (
+    from shapiq_repo.shapiq.exact import ExactComputer
+    from shapiq_repo.shapiq.games.benchmark.benchmark_config import (
         get_game_class_from_name,
         load_games_from_configuration,
     )
-    from shapiq.games.benchmark.plot import create_application_name
+    from shapiq_repo.shapiq.games.benchmark.plot import create_application_name
 
     plt.rcParams.update({"font.size": 12})
     plt.rcParams.update({"figure.figsize": (5, 5)})

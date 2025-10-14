@@ -4,8 +4,8 @@ from copy import copy, deepcopy
 
 import pytest
 
-from shapiq.approximator import Approximator, KernelSHAP
-from shapiq.games.benchmark import DummyGame
+from shapiq_repo.shapiq.approximator import Approximator, KernelSHAP
+from shapiq_repo.shapiq.games.benchmark import DummyGame
 from tests.utils import get_concrete_class
 
 

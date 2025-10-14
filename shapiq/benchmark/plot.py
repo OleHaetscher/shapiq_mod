@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 
-from shapiq.approximator._base import Approximator
+from shapiq_repo.shapiq.approximator._base import Approximator
 
 __all__ = ["plot_approximation_quality"]
 

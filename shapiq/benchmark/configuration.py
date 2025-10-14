@@ -36,7 +36,7 @@ information:
 import os
 from typing import Any
 
-from shapiq.approximator import (
+from shapiq_repo.shapiq.approximator import (
     FSII_APPROXIMATORS,
     SI_APPROXIMATORS,
     SII_APPROXIMATORS,
@@ -44,8 +44,8 @@ from shapiq.approximator import (
     SV_APPROXIMATORS,
     Approximator,
 )
-from shapiq.games.base import Game
-from shapiq.games.benchmark import (
+from shapiq_repo.shapiq.games.base import Game
+from shapiq_repo.shapiq.games.benchmark import (
     SOUM,
     AdultCensusDatasetValuation,
     AdultCensusDataValuation,

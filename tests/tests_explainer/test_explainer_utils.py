@@ -6,8 +6,8 @@ from unittest.mock import Mock
 import numpy as np
 import pytest
 
-from shapiq.explainer.tree.validation import SUPPORTED_MODELS
-from shapiq.explainer.utils import get_predict_function_and_model_type
+from shapiq_repo.shapiq.explainer.tree.validation import SUPPORTED_MODELS
+from shapiq_repo.shapiq.explainer.utils import get_predict_function_and_model_type
 from tests.conftest import (
     TABULAR_MODEL_FIXTURES,
     TABULAR_TENSORFLOW_MODEL_FIXTURES,

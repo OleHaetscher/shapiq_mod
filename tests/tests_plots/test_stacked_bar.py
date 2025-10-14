@@ -3,8 +3,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from shapiq.interaction_values import InteractionValues
-from shapiq.plot import stacked_bar_plot
+from shapiq_repo.shapiq.interaction_values import InteractionValues
+from shapiq_repo.shapiq.plot import stacked_bar_plot
 
 
 def test_stacked_bar_plot():

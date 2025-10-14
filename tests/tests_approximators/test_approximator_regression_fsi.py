@@ -3,9 +3,9 @@
 import numpy as np
 import pytest
 
-from shapiq.approximator.regression import RegressionFSII
-from shapiq.games.benchmark import DummyGame
-from shapiq.interaction_values import InteractionValues
+from shapiq_repo.shapiq.approximator.regression import RegressionFSII
+from shapiq_repo.shapiq.games.benchmark import DummyGame
+from shapiq_repo.shapiq.interaction_values import InteractionValues
 
 
 @pytest.mark.parametrize(

@@ -3,7 +3,7 @@
 import pytest
 
 from shapiq import InteractionValues
-from shapiq.explainer import Explainer, TabularExplainer, TreeExplainer
+from shapiq_repo.shapiq.explainer import Explainer, TabularExplainer, TreeExplainer
 
 
 def test_torch_reg(torch_reg_model, background_reg_data):

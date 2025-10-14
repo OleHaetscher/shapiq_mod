@@ -1,6 +1,6 @@
 """This test module tests all plotting utilities."""
 
-from shapiq.plot.utils import abbreviate_feature_names, format_labels, format_value
+from shapiq_repo.shapiq.plot.utils import abbreviate_feature_names, format_labels, format_value
 
 
 def test_format_value():

@@ -1,7 +1,7 @@
 """This module contains the benchmark DatasetValuation games."""
 
-from shapiq.games.benchmark.dataset_valuation.base import DatasetValuation
-from shapiq.games.benchmark.setup import GameBenchmarkSetup
+from shapiq_repo.shapiq.games.benchmark.dataset_valuation.base import DatasetValuation
+from shapiq_repo.shapiq.games.benchmark.setup import GameBenchmarkSetup
 
 
 class CaliforniaHousing(DatasetValuation):
@@ -21,7 +21,7 @@ class CaliforniaHousing(DatasetValuation):
 
     Examples:
         >>> import numpy as np
-        >>> from shapiq.games.benchmark.dataset_valuation import CaliforniaHousing
+        >>> from shapiq_repo.shapiq.games.benchmark.dataset_valuation import CaliforniaHousing
         >>> game = CaliforniaHousing(n_players=4)
         >>> game.n_players
         4
@@ -34,7 +34,7 @@ class CaliforniaHousing(DatasetValuation):
         >>> game.precompute()
         >>> game.save_values("california_housing_values.npz")
         >>> # load the values from the file
-        >>> from shapiq.games import Game  # for loading the game via its values
+        >>> from shapiq_repo.shapiq.games import Game  # for loading the game via its values
         >>> game = Game(path_to_values="california_housing_values.npz")
         >>> game.n_players
         4
@@ -92,7 +92,7 @@ class BikeSharing(DatasetValuation):
 
     Examples:
         >>> import numpy as np
-        >>> from shapiq.games.benchmark.dataset_valuation import BikeSharing
+        >>> from shapiq_repo.shapiq.games.benchmark.dataset_valuation import BikeSharing
         >>> game = BikeSharing(n_players=4)
         >>> game.n_players
         4
@@ -105,7 +105,7 @@ class BikeSharing(DatasetValuation):
         >>> game.precompute()
         >>> game.save_values("bike_sharing_values.npz")
         >>> # load the values from the file
-        >>> from shapiq.games import Game  # for loading the game via its values
+        >>> from shapiq_repo.shapiq.games import Game  # for loading the game via its values
         >>> game = Game(path_to_values="bike_sharing_values.npz")
         >>> game.n_players
         4
@@ -163,7 +163,7 @@ class AdultCensus(DatasetValuation):
 
     Examples:
         >>> import numpy as np
-        >>> from shapiq.games.benchmark.dataset_valuation import AdultCensus
+        >>> from shapiq_repo.shapiq.games.benchmark.dataset_valuation import AdultCensus
         >>> game = AdultCensus(n_players=4)
         >>> game.n_players
         4
@@ -176,7 +176,7 @@ class AdultCensus(DatasetValuation):
         >>> game.precompute()
         >>> game.save_values("adult_census_values.npz")
         >>> # load the values from the file
-        >>> from shapiq.games import Game  # for loading the game via its values
+        >>> from shapiq_repo.shapiq.games import Game  # for loading the game via its values
         >>> game = Game(path_to_values="adult_census_values.npz")
         >>> game.n_players
         4

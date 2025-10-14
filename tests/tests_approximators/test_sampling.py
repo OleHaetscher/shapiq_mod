@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from shapiq.approximator.sampling import CoalitionSampler
+from shapiq_repo.shapiq.approximator.sampling import CoalitionSampler
 
 
 @pytest.mark.parametrize("n_players", [5, 10, 50])

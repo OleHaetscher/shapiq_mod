@@ -1,6 +1,6 @@
 """This module contains tests for the plot.utils module."""
 
-from shapiq.plot.utils import abbreviate_feature_names
+from shapiq_repo.shapiq.plot.utils import abbreviate_feature_names
 
 
 def test_abbreviate():

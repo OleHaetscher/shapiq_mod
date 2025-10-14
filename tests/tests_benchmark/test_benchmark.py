@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import pytest
 
-from shapiq.approximator import KernelSHAP, PermutationSamplingSII, kADDSHAP
-from shapiq.benchmark import (
+from shapiq_repo.shapiq.approximator import KernelSHAP, PermutationSamplingSII, kADDSHAP
+from shapiq_repo.shapiq.benchmark import (
     download_game_data,
     load_benchmark_results,
     load_games_from_configuration,
@@ -128,7 +128,7 @@ def test_benchmark_config():
 def test_download_games():
     """Tests the download of games from the configuration in the correct location."""
     # files will be stored in shapiq/benchmark/precomputed
-    from shapiq.benchmark.precompute import SHAPIQ_DATA_DIR
+    from shapiq_repo.shapiq.benchmark.precompute import SHAPIQ_DATA_DIR
 
     game_name = "CaliforniaHousing_GlobalExplanation_Game"
     n_players = 8

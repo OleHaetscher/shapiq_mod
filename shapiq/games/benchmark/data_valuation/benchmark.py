@@ -1,7 +1,7 @@
 """This module contains the benchmark DatasetValuation games."""
 
-from shapiq.games.benchmark.data_valuation.base import DataValuation
-from shapiq.games.benchmark.setup import GameBenchmarkSetup
+from shapiq_repo.shapiq.games.benchmark.data_valuation.base import DataValuation
+from shapiq_repo.shapiq.games.benchmark.setup import GameBenchmarkSetup
 
 
 class CaliforniaHousing(DataValuation):

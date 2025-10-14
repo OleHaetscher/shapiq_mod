@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from shapiq.games.imputer.base import Imputer
+from shapiq_repo.shapiq.games.imputer.base import Imputer
 from tests.utils import get_concrete_class
 
 

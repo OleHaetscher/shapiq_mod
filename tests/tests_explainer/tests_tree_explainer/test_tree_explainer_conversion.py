@@ -5,16 +5,16 @@ import numpy as np
 import pytest
 
 from shapiq import TreeExplainer
-from shapiq.explainer.tree.base import TreeModel
-from shapiq.explainer.tree.conversion.edges import create_edge_tree
-from shapiq.explainer.tree.conversion.sklearn import (
+from shapiq_repo.shapiq.explainer.tree.base import TreeModel
+from shapiq_repo.shapiq.explainer.tree.conversion.edges import create_edge_tree
+from shapiq_repo.shapiq.explainer.tree.conversion.sklearn import (
     convert_sklearn_forest,
     convert_sklearn_isolation_forest,
     convert_sklearn_tree,
 )
-from shapiq.explainer.tree.validation import SUPPORTED_MODELS
-from shapiq.explainer.utils import get_predict_function_and_model_type
-from shapiq.utils import safe_isinstance
+from shapiq_repo.shapiq.explainer.tree.validation import SUPPORTED_MODELS
+from shapiq_repo.shapiq.explainer.utils import get_predict_function_and_model_type
+from shapiq_repo.shapiq.utils import safe_isinstance
 from tests.conftest import TREE_MODEL_FIXTURES
 
 

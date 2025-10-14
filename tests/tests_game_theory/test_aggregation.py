@@ -3,12 +3,12 @@
 import numpy as np
 import pytest
 
-from shapiq.approximator import (
+from shapiq_repo.shapiq.approximator import (
     SHAPIQ,
     PermutationSamplingSII,
 )
-from shapiq.game_theory.aggregation import aggregate_to_one_dimension
-from shapiq.games.benchmark import DummyGame
+from shapiq_repo.shapiq.game_theory.aggregation import aggregate_to_one_dimension
+from shapiq_repo.shapiq.games.benchmark import DummyGame
 
 
 @pytest.mark.parametrize(

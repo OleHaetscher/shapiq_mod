@@ -6,8 +6,8 @@ import pytest
 import scipy as sp
 from PIL import Image
 
-from shapiq.interaction_values import InteractionValues
-from shapiq.plot import network_plot
+from shapiq_repo.shapiq.interaction_values import InteractionValues
+from shapiq_repo.shapiq.plot import network_plot
 
 
 def test_network_plot():

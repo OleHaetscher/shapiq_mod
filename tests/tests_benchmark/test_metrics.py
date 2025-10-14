@@ -6,7 +6,7 @@ import numpy as np
 import pytest
 
 from shapiq import InteractionValues, powerset
-from shapiq.benchmark.metrics import get_all_metrics
+from shapiq_repo.shapiq.benchmark.metrics import get_all_metrics
 
 
 @pytest.mark.parametrize(

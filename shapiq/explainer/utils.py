@@ -22,9 +22,9 @@ def get_explainers() -> dict[str, Any]:
     Returns:
         A dictionary of all available explainer classes.
     """
-    from shapiq.explainer.tabpfn import TabPFNExplainer
-    from shapiq.explainer.tabular import TabularExplainer
-    from shapiq.explainer.tree.explainer import TreeExplainer
+    from shapiq_repo.shapiq.explainer.tabpfn import TabPFNExplainer
+    from shapiq_repo.shapiq.explainer.tabular import TabularExplainer
+    from shapiq_repo.shapiq.explainer.tree.explainer import TreeExplainer
 
     return {"tabular": TabularExplainer, "tree": TreeExplainer, "tabpfn": TabPFNExplainer}
 

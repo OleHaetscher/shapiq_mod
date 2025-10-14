@@ -3,16 +3,16 @@
 import numpy as np
 import pytest
 
-from shapiq.approximator.montecarlo import SHAPIQ
-from shapiq.game_theory.exact import ExactComputer
-from shapiq.games import Game
-from shapiq.games.benchmark import (
+from shapiq_repo.shapiq.approximator.montecarlo import SHAPIQ
+from shapiq_repo.shapiq.game_theory.exact import ExactComputer
+from shapiq_repo.shapiq.games import Game
+from shapiq_repo.shapiq.games.benchmark import (
     AdultCensusTreeSHAPIQXAI,
     BikeSharingTreeSHAPIQXAI,
     CaliforniaHousingTreeSHAPIQXAI,
     TreeSHAPIQXAI,
 )
-from shapiq.utils.sets import powerset
+from shapiq_repo.shapiq.utils.sets import powerset
 
 
 @pytest.mark.parametrize("task", ["clf", "reg"])

@@ -708,7 +708,7 @@ class InteractionValues:
         Returns:
 
         """
-        from shapiq.plot.network import network_plot
+        from shapiq_repo.shapiq.plot.network import network_plot
 
         if self.max_order > 1:
             return network_plot(
@@ -731,7 +731,7 @@ class InteractionValues:
             The SI graph as a tuple containing the figure and the axes.
         """
 
-        from shapiq.plot.si_graph import si_graph_plot
+        from shapiq_repo.shapiq.plot.si_graph import si_graph_plot
 
         return si_graph_plot(self, show=show, **kwargs)
 
@@ -824,7 +824,7 @@ class InteractionValues:
             If ``show`` is ``True``, the function returns ``None``. Otherwise, it returns a tuple
             with the figure and the axis of the plot.
         """
-        from shapiq.plot.sentence import sentence_plot
+        from shapiq_repo.shapiq.plot.sentence import sentence_plot
 
         return sentence_plot(self, words, show=show, **kwargs)
 
@@ -836,7 +836,7 @@ class InteractionValues:
         Returns:
             The upset plot as a matplotlib figure (if show is ``False``).
         """
-        from shapiq.plot.upset import upset_plot
+        from shapiq_repo.shapiq.plot.upset import upset_plot
 
         return upset_plot(self, show=show, **kwargs)
 

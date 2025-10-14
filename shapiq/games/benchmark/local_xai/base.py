@@ -4,10 +4,10 @@ from collections.abc import Callable
 
 import numpy as np
 
-from shapiq.games.base import Game
-from shapiq.games.benchmark.setup import get_x_explain
-from shapiq.games.imputer.conditional_imputer import ConditionalImputer
-from shapiq.games.imputer.marginal_imputer import MarginalImputer
+from shapiq_repo.shapiq.games.base import Game
+from shapiq_repo.shapiq.games.benchmark.setup import get_x_explain
+from shapiq_repo.shapiq.games.imputer.conditional_imputer import ConditionalImputer
+from shapiq_repo.shapiq.games.imputer.marginal_imputer import MarginalImputer
 
 
 class LocalExplanation(Game):
@@ -41,7 +41,7 @@ class LocalExplanation(Game):
     Examples:
         >>> from sklearn.tree import DecisionTreeRegressor
         >>> from sklearn.datasets import make_regression
-        >>> from shapiq.games.benchmark.local_xai import LocalExplanation
+        >>> from shapiq_repo.shapiq.games.benchmark.local_xai import LocalExplanation
         >>> # create a regression dataset and fit the model
         >>> x_data, y_data = make_regression(n_samples=100, n_features=10, noise=0.1)
         >>> model = DecisionTreeRegressor(max_depth=4)
@@ -60,7 +60,7 @@ class LocalExplanation(Game):
         >>> new_game = LocalExplanation.load("game.pkl")
         >>> # save and load the game values
         >>> game.save_values("values.npz")
-        >>> from shapiq.games import Game
+        >>> from shapiq_repo.shapiq.games import Game
         >>> new_game_from_values = Game(path_to_values="values.npz")
     """
 

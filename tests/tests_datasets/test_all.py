@@ -3,7 +3,7 @@
 import numpy as np
 from pandas import DataFrame, Series
 
-from shapiq.datasets import load_adult_census, load_bike_sharing, load_california_housing
+from shapiq_repo.shapiq.datasets import load_adult_census, load_bike_sharing, load_california_housing
 
 
 def test_load_bike():

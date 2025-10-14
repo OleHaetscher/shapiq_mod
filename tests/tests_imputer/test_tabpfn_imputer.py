@@ -4,7 +4,7 @@ import numpy as np
 import pytest
 
 from shapiq import TabPFNImputer
-from shapiq.explainer.utils import get_predict_function_and_model_type
+from shapiq_repo.shapiq.explainer.utils import get_predict_function_and_model_type
 from tests.markers import importorskip_tabpfn
 
 

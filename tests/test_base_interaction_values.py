@@ -6,8 +6,8 @@ from copy import copy, deepcopy
 import numpy as np
 import pytest
 
-from shapiq.interaction_values import InteractionValues, aggregate_interaction_values
-from shapiq.utils import powerset
+from shapiq_repo.shapiq.interaction_values import InteractionValues, aggregate_interaction_values
+from shapiq_repo.shapiq.utils import powerset
 
 
 @pytest.mark.parametrize(

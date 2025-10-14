@@ -1,7 +1,7 @@
 """This module contains all benchmark games for the feature selection setting."""
 
-from shapiq.games.benchmark.feature_selection.base import FeatureSelection
-from shapiq.games.benchmark.setup import GameBenchmarkSetup
+from shapiq_repo.shapiq.games.benchmark.feature_selection.base import FeatureSelection
+from shapiq_repo.shapiq.games.benchmark.setup import GameBenchmarkSetup
 
 
 class AdultCensus(FeatureSelection):

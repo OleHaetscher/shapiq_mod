@@ -3,8 +3,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from shapiq.interaction_values import InteractionValues
-from shapiq.plot import sentence_plot
+from shapiq_repo.shapiq.interaction_values import InteractionValues
+from shapiq_repo.shapiq.plot import sentence_plot
 
 
 def _text_values() -> tuple[list[str], InteractionValues]:

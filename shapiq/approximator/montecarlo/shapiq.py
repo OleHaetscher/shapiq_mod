@@ -26,7 +26,7 @@ class SHAPIQ(MonteCarlo):
         random_state: The random state of the estimator. Defaults to ``None``.
 
     Examples:
-        >>> from shapiq.games.benchmark import DummyGame
+        >>> from shapiq_repo.shapiq.games.benchmark import DummyGame
         >>> from shapiq import SHAPIQ
         >>> game = DummyGame(n=5, interaction=(1, 2))
         >>> approximator = SHAPIQ(game.n_players, max_order=2, index="k-SII")
@@ -86,8 +86,8 @@ class UnbiasedKernelSHAP(SHAPIQ):
         random_state: The random state of the estimator. Defaults to ``None``.
 
     Example:
-        >>> from shapiq.games.benchmark import DummyGame
-        >>> from shapiq.approximator import UnbiasedKernelSHAP
+        >>> from shapiq_repo.shapiq.games.benchmark import DummyGame
+        >>> from shapiq_repo.shapiq.approximator import UnbiasedKernelSHAP
         >>> game = DummyGame(n=5, interaction=(1, 2))
         >>> approximator = UnbiasedKernelSHAP(n=5)
         >>> approximator.approximate(budget=20, game=game)

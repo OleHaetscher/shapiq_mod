@@ -100,7 +100,7 @@ class BaselineImputer(Imputer):
 
         Examples:
             >>> import numpy as np
-            >>> from shapiq.games.imputer import BaselineImputer
+            >>> from shapiq_repo.shapiq.games.imputer import BaselineImputer
             >>> data = np.array([[1, 2, "a"], [2, 3, "a"], [2, 4, "b"]], dtype=object)
             >>> x = np.array([1, 2, 3])
             >>> imputer = BaselineImputer(model=lambda x: np.sum(x, axis=1), data=data, x=x)

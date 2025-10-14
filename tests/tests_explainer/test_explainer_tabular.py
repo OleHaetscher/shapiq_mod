@@ -5,8 +5,8 @@ import pytest
 from sklearn.datasets import make_regression
 from sklearn.tree import DecisionTreeRegressor
 
-from shapiq.approximator import RegressionFSII
-from shapiq.explainer import TabularExplainer
+from shapiq_repo.shapiq.approximator import RegressionFSII
+from shapiq_repo.shapiq.explainer import TabularExplainer
 
 
 @pytest.fixture

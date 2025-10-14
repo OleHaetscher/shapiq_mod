@@ -10,8 +10,8 @@ import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 
-from shapiq.games import Game
-from shapiq.utils.sets import powerset, transform_coalitions_to_array
+from shapiq_repo.shapiq.games import Game
+from shapiq_repo.shapiq.utils.sets import powerset, transform_coalitions_to_array
 
 
 class OldLookUpGame:

@@ -3,8 +3,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from shapiq.interaction_values import InteractionValues
-from shapiq.plot import upset_plot
+from shapiq_repo.shapiq.interaction_values import InteractionValues
+from shapiq_repo.shapiq.plot import upset_plot
 
 
 def test_upset_plot():

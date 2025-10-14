@@ -5,8 +5,8 @@ import networkx as nx
 import numpy as np
 import pytest
 
-from shapiq.interaction_values import InteractionValues
-from shapiq.plot import si_graph_plot
+from shapiq_repo.shapiq.interaction_values import InteractionValues
+from shapiq_repo.shapiq.plot import si_graph_plot
 
 
 @pytest.mark.parametrize("draw_threshold", [0.0, 0.5])

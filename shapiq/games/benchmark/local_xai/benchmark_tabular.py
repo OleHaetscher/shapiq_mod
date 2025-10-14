@@ -2,8 +2,8 @@
 
 import numpy as np
 
-from shapiq.games.benchmark.local_xai.base import LocalExplanation
-from shapiq.games.benchmark.setup import GameBenchmarkSetup, get_x_explain
+from shapiq_repo.shapiq.games.benchmark.local_xai.base import LocalExplanation
+from shapiq_repo.shapiq.games.benchmark.setup import GameBenchmarkSetup, get_x_explain
 
 
 class AdultCensus(LocalExplanation):

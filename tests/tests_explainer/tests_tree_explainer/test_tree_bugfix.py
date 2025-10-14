@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from shapiq.explainer.tree import TreeExplainer, TreeModel, TreeSHAPIQ
+from shapiq_repo.shapiq.explainer.tree import TreeExplainer, TreeModel, TreeSHAPIQ
 
 
 def test_bike_bug():

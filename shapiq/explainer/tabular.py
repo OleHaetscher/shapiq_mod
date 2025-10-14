@@ -125,7 +125,7 @@ class TabularExplainer(Explainer):
         verbose: bool = False,
         **kwargs,
     ) -> None:
-        from shapiq.games.imputer import (
+        from shapiq_repo.shapiq.games.imputer import (
             BaselineImputer,
             ConditionalImputer,
             MarginalImputer,

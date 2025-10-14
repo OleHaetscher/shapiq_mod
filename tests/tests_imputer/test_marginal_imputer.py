@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from shapiq.games.imputer import MarginalImputer
+from shapiq_repo.shapiq.games.imputer import MarginalImputer
 
 
 def test_marginal_imputer_init():

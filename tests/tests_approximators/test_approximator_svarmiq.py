@@ -2,9 +2,9 @@
 
 import pytest
 
-from shapiq.approximator.montecarlo import SVARMIQ
-from shapiq.games.benchmark import DummyGame
-from shapiq.interaction_values import InteractionValues
+from shapiq_repo.shapiq.approximator.montecarlo import SVARMIQ
+from shapiq_repo.shapiq.games.benchmark import DummyGame
+from shapiq_repo.shapiq.interaction_values import InteractionValues
 
 
 @pytest.mark.parametrize(

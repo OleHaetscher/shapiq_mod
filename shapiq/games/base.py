@@ -54,8 +54,8 @@ class Game(ABC):
         `value_function` methods. Only use this class directly for dealing with precomputed games.
 
     Examples:
-        >>> from shapiq.games import Game
-        >>> from shapiq.games.benchmark.synthetic import DummyGame
+        >>> from shapiq_repo.shapiq.games import Game
+        >>> from shapiq_repo.shapiq.games.benchmark.synthetic import DummyGame
         >>> game = DummyGame(4, interaction=(1, 2))
         >>> game.precomputed, game.n_values_stored
         False, 0
@@ -328,7 +328,7 @@ class Game(ABC):
                 coalitions will be used.
 
         Examples:
-            >>> from shapiq.games.benchmark import DummyGame
+            >>> from shapiq_repo.shapiq.games.benchmark import DummyGame
             >>> game = DummyGame(4, interaction=(1, 2))
             >>> game.precomputed, game.n_values_stored
             False, 0
@@ -480,7 +480,7 @@ class Game(ABC):
         Returns:
             InteractionValues: The exact interaction values.
         """
-        from shapiq.game_theory.exact import ExactComputer
+        from shapiq_repo.shapiq.game_theory.exact import ExactComputer
 
         # raise warning if the game is not precomputed and n_players > 16
         if not self.precomputed and self.n_players > 16:  # pragma: no cover

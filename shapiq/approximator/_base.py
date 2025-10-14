@@ -273,6 +273,6 @@ class Approximator(ABC):
         Returns:
             The aggregated interaction values.
         """
-        from shapiq.game_theory.aggregation import aggregate_base_interaction
+        from shapiq_repo.shapiq.game_theory.aggregation import aggregate_base_interaction
 
         return aggregate_base_interaction(base_interactions, order=order)

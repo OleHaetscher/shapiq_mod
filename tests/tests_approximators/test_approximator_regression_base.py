@@ -2,8 +2,8 @@
 
 import pytest
 
-from shapiq.approximator.regression import Regression
-from shapiq.approximator.regression._base import AVAILABLE_INDICES_REGRESSION
+from shapiq_repo.shapiq.approximator.regression import Regression
+from shapiq_repo.shapiq.approximator.regression._base import AVAILABLE_INDICES_REGRESSION
 
 
 def test_basic_functions():
