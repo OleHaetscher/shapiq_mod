@@ -92,7 +92,7 @@ def _draw_waterfall_plot(
 
     # add a last grouped feature to represent the impact of all the features we didn't show
     if num_features < len(values):
-        yticklabels[0] = "%d other features".format()
+        yticklabels[0] = "Agg. other vars".format()  # "%d other features"
         remaining_impact = base_values - loc
         if remaining_impact < 0:
             pos_inds.append(0)
@@ -166,28 +166,31 @@ def _draw_waterfall_plot(
         txt_obj = plt.text(
             pos_lefts[i] + 0.5 * dist,
             pos_inds[i],
-            format_value(pos_widths[i], "%+0.02f"),
+            format_value(pos_widths[i], "%+0.1f"),  # "%+0.02f")
             horizontalalignment="center",
             verticalalignment="center",
             color="white",
-            fontsize=12,
+            fontsize=9.5,
         )
         text_bbox = txt_obj.get_window_extent(renderer=renderer)
         arrow_bbox = arrow_obj.get_window_extent(renderer=renderer)
 
         # if the text overflows the arrow then draw it after the arrow
+
+        """
         if text_bbox.width > arrow_bbox.width:
             txt_obj.remove()
 
             txt_obj = plt.text(
                 pos_lefts[i] + (5 / 72) * bbox_to_xscale + dist,
                 pos_inds[i],
-                format_value(pos_widths[i], "%+0.02f"),
+                format_value(pos_widths[i], "%+0.1f"),
                 horizontalalignment="left",
                 verticalalignment="center",
                 color=RED.hex,
-                fontsize=12,
+                fontsize=9.5,
             )
+            """
 
     # draw the negative arrows
     for i in range(len(neg_inds)):
@@ -215,11 +218,11 @@ def _draw_waterfall_plot(
         txt_obj = plt.text(
             neg_lefts[i] + 0.5 * dist,
             neg_inds[i],
-            format_value(neg_widths[i], "%+0.02f"),
+            format_value(neg_widths[i], "%+0.1f"),
             horizontalalignment="center",
             verticalalignment="center",
             color="white",
-            fontsize=12,
+            fontsize=9.5,
         )
         text_bbox = txt_obj.get_window_extent(renderer=renderer)
         arrow_bbox = arrow_obj.get_window_extent(renderer=renderer)
@@ -231,11 +234,11 @@ def _draw_waterfall_plot(
             plt.text(
                 neg_lefts[i] - (5 / 72) * bbox_to_xscale + dist,
                 neg_inds[i],
-                format_value(neg_widths[i], "%+0.02f"),
+                format_value(neg_widths[i], "%+0.1f"),
                 horizontalalignment="right",
                 verticalalignment="center",
                 color=BLUE.hex,
-                fontsize=12,
+                fontsize=9.5,
             )
 
     # draw the y-ticks twice, once in gray and then again with just the feature names in black
@@ -271,14 +274,31 @@ def _draw_waterfall_plot(
     xmin, xmax = ax.get_xlim()
     ax2 = ax.twiny()
     ax2.set_xlim(xmin, xmax)
+    # ax2.set_xticks(
+    #    [base_values, base_values + 1e-8]
+    # )  # The 1e-8 is so matplotlib 3.3 doesn't try and collapse the ticks
+    # label_EV = "\n$E[f(X)]$", "\n$ = "
+    # label_EV = "Expected value\n$ = "
+    # ax2.set_xticklabels(
+    #    [ "\n\nEV", "\n\n= "+ format_value(base_values, "%+0.1f")],
+    #    fontsize=12,
+    #    ha="left",
+    # )
+
     ax2.set_xticks(
-        [base_values, base_values + 1e-8]
+        [base_values] # , base_values + 1e-8]
     )  # The 1e-8 is so matplotlib 3.3 doesn't try and collapse the ticks
+    #ax2.set_xticklabels(
+    #    ["\n$E[f(X)]$", "\n$ = " + format_value(base_values, "%0.03f") + "$"],
+    #    fontsize=12,
+    #    ha="left",
+    #)
     ax2.set_xticklabels(
-        ["\n$E[f(X)]$", "\n$ = " + format_value(base_values, "%0.03f") + "$"],
+        ["\n\nEV = " + format_value(base_values, "%+0.1f")],
         fontsize=12,
         ha="left",
     )
+
     ax2.spines["right"].set_visible(False)
     ax2.spines["top"].set_visible(False)
     ax2.spines["left"].set_visible(False)
@@ -287,20 +307,27 @@ def _draw_waterfall_plot(
     ax3 = ax2.twiny()
     ax3.set_xlim(xmin, xmax)
     # The 1e-8 is so matplotlib 3.3 doesn't try and collapse the ticks
-    ax3.set_xticks([base_values + values.sum(), base_values + values.sum() + 1e-8])
+    # ax3.set_xticks([base_values + values.sum(), base_values + values.sum() + 1e-8])
+    ax3.set_xticks([base_values + values.sum()])
+
+    #ax3.set_xticklabels(
+    #    ["$f(x)$", "$ = " + format_value(fx, "%0.03f") + "$"], fontsize=12, ha="left"
+    #)
     ax3.set_xticklabels(
-        ["$f(x)$", "$ = " + format_value(fx, "%0.03f") + "$"], fontsize=12, ha="left"
+        ["\n\nUSC = " + format_value(fx, "%+0.1f")],
+        fontsize=12,
+        ha="left",
     )
     tick_labels = ax3.xaxis.get_majorticklabels()
     tick_labels[0].set_transform(
         tick_labels[0].get_transform()
-        + matplotlib.transforms.ScaledTranslation(-10 / 72.0, 0, fig.dpi_scale_trans)
+        + matplotlib.transforms.ScaledTranslation(-15 / 72.0, 0, fig.dpi_scale_trans)
     )
-    tick_labels[1].set_transform(
-        tick_labels[1].get_transform()
-        + matplotlib.transforms.ScaledTranslation(12 / 72.0, 0, fig.dpi_scale_trans)
-    )
-    tick_labels[1].set_color("#999999")
+    # tick_labels[1].set_transform(
+    #    tick_labels[1].get_transform()
+    #    + matplotlib.transforms.ScaledTranslation(12 / 72.0, 0, fig.dpi_scale_trans)
+    # )
+    # tick_labels[1].set_color("#999999")
     ax3.spines["right"].set_visible(False)
     ax3.spines["top"].set_visible(False)
     ax3.spines["left"].set_visible(False)
@@ -311,12 +338,12 @@ def _draw_waterfall_plot(
         tick_labels[0].get_transform()
         + matplotlib.transforms.ScaledTranslation(-20 / 72.0, 0, fig.dpi_scale_trans)
     )
-    tick_labels[1].set_transform(
-        tick_labels[1].get_transform()
-        + matplotlib.transforms.ScaledTranslation(22 / 72.0, -1 / 72.0, fig.dpi_scale_trans)
-    )
+    # tick_labels[1].set_transform(
+    #    tick_labels[1].get_transform()
+    #    + matplotlib.transforms.ScaledTranslation(22 / 72.0, -1 / 72.0, fig.dpi_scale_trans)
+    # )
 
-    tick_labels[1].set_color("#999999")
+    # tick_labels[1].set_color("#999999")
 
     # color the y tick labels that have the feature values as gray
     # (these fall behind the black ones with just the feature name)

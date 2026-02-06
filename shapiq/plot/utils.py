@@ -9,12 +9,14 @@ __all__ = ["abbreviate_feature_names", "format_value", "format_labels"]
 def format_value(
     s: float | str,
     format_str: str = "%.2f",
+    strip_trailing_zeros: bool = False,
 ) -> str:
     """Strips trailing zeros and uses a unicode minus sign.
 
     Args:
         s: The value to be formatted.
         format_str: The format string to be used. Defaults to "%.2f".
+        strip_trailing_zeros: If True, strips trailing zeros
 
     Returns:
         str: The formatted value.
@@ -27,8 +29,11 @@ def format_value(
     """
     if not issubclass(type(s), str):
         s = format_str % s
-    s = re.sub(r"\.?0+$", "", s)
-    if s[0] == "-":
+
+    if strip_trailing_zeros:
+        s = re.sub(r"\.?0+$", "", s)
+
+    if s and s[0] == "-":
         s = "\u2212" + s[1:]
     return s
 
